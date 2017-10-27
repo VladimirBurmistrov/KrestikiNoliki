@@ -75,30 +75,51 @@ int main()
 		}
 		//вывод матрицы
 		cout << endl;
-		for (i = 0; i < 3; i++)
+		cout << "    1   2   3\n  +---+---+---+\n";
+		for (i = 0; i < 3;)
 		{
+			switch (i)
+			{
+			case 0:
+			{
+				cout << "a |";
+				break;
+			}
+			case 1:
+			{
+				cout << "b |";
+				break;
+			}
+			case 2:
+			{
+				cout << "c |";
+				break;
+			}
+			}
 			for (j = 0; j < 3; j++)
 			{
 				if (matrix[i][j] == 3)
 				{
-					cout << '_' << ' ';
+					cout << ' ' << '_' << ' ' << '|';
 				}
 				else {
 					if (matrix[i][j] == 0)
 					{
-						cout << 'X' << ' ';
+						cout << ' ' << 'X' << ' ' << '|';
 					}
 					else
 					{
 						if (matrix[i][j] == 1)
 						{
-							cout << 'O' << ' ';
+							cout << ' ' << 'O' << ' ' << '|';
 						}
 					}
 				}
 			}
-			cout << endl;
+
+			cout << endl << "  +---+---+---+\n";
 			chet++;
+			i++;
 		}
 		for (i = 0; i < 3; i++)
 		{
