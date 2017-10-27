@@ -106,13 +106,15 @@ int main()
 			{
 				if (chet % 2 == 1)
 				{
-					cout << "Player 1 wins";
+					cout << "Player 1 wins\n";
 				}
 				else
 				{
-					cout << "Player 2 wins";
+					cout << "Player 2 wins\n";
 				}
-				break;
+				cin.get();
+				cin.get();
+				return 0;
 			}
 		}
 	}
