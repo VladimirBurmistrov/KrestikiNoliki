@@ -1,46 +1,101 @@
 #include <iostream>
+#include <cctype>
 
 using namespace std;
 int main()
 {
     cout << "The game is started\nEnter your value:\n\n1 : (1, 1)\n2 : (1, 2)\n3 : (1, 3)\n4 : (2, 1)\n5 : (2, 2)\n6 : (2, 3)\n7 : (3, 1)\n8 : (3, 2)\n9 : (3, 3)\n0 : quit\n\n";
-    int matrix[3][3], i, j;
-    char n;
+    unsigned char matrix[3][3], i, j;
+   unsigned char n;
     for ( i = 0; i < 3; i++) {
 		for ( j = 0; j < 3; j++) {
-		    matrix[i][j] = 0;
-		    if(matrix[i][j] == 0){
-		        cout << '_' << ' ';
-		    }
-			else cout << matrix[i][j] << ' ';
+		    matrix[i][j] = 3;
 		}
 		cout << endl;
 	}
 	cout << endl;
+	unsigned char chet=0;
+	for (int i=0;i<10;i++)
+	{
+	    
+	    
 	cin >> n;
-	    switch(n){
-	case 1: {cout << "odin";
-	break;}
-	case 2: {cout << "dva";
-	break;}
-	case 3: {cout << "tri";
-	break;}
-	case 4: {cout << "chetire";
-	break;}
-	case 5: {cout << "pyat";
-	break;}
-	case 6: {cout << "shest";
-	break;}
-	case 7: {cout << "sem";
-	break;}
-	case 8: {cout << "vosem";
-	break;}
-	case 9: {cout << "devat";
-	break;}
-	case 0: {cout << "quit";
-	break;}
-	default: {cout << "Choose other value";
-	break;}
+    	if(isdigit(n)){
+    	    switch(n){
+    	case '1': {cout << "odin"; matrix[0][0] = chet % 2;
+    	break;}
+    	case '2': {cout << "dva"; matrix[0][1] = chet % 2;
+    	break;}
+    	case '3': {cout << "tri"; matrix[0][2] = chet % 2;
+    	break;}
+    	case '4': {cout << "chetire"; matrix[1][0] = chet % 2;
+    	break;}
+    	case '5': {cout << "pyat"; matrix[1][1] = chet % 2;
+    	break;}
+    	case '6': {cout << "shest"; matrix[1][2] = chet % 2;
+    	break;}
+    	case '7': {cout << "sem"; matrix[2][0] = chet % 2;
+    	break;}
+    	case '8': {cout << "vosem"; matrix[2][1] = chet % 2;
+    	break;}
+    	case '9': {cout << "devat"; matrix[2][2] = chet % 2;
+    	break;}
+    	case '0': {cout << "quit";
+    	break;}
+    	default: {cout << "Choose other number";
+    	break;}
+    	}
+    	cout<<endl;
+    	}
+    	else{
+    	cout << "Choose other value";
+    	}
+    //	cout<<endl<<n<<endl<<(unsigned int)n;
+    	//вывод матрицы
+    	
+    	
+    	for ( i = 0; i < 3; i++) 
+    	{
+    		for ( j = 0; j < 3; j++) 
+    		{
+    		    
+            	 if(matrix[i][j] == 3)
+                	 {
+            		        cout << '_' << ' ';
+            		 }
+            		else {
+            		    
+                		    if(matrix[i][j] == 0)
+                		    {
+                		    cout << 'X' << ' ';
+                		    }
+                		    else
+                		    {
+                		        if(matrix[i][j] == 1)
+                		        {
+                		         cout<< 'O'<< ' ';
+                		        }
+                		    
+        		                
+            		        }
+            		        
+        	            }   
+    		}
+    		cout << endl;
+    	}
+    		chet++;
+    	for ( i = 0; i < 3; i++) 
+        	{if((matrix[i][1]==matrix[i][2]&&matrix[i][1]==matrix[i][0]&&matrix[i][1]!=3)||(matrix[1][i]==matrix[2][i]&&matrix[1][i]==matrix[0][i]&&matrix[1][i]!=3)){
+        	cout<<"game over";
+        	return 0;
+        	}
+        	}
+        if (matrix[1][1]==matrix[2][2]&&matrix[1][1]==matrix[0][0]&&matrix[1][1]!=3 ){	cout<<"game over";
+        	break;}
+    	if (matrix[1][1]==matrix[0][2]&&matrix[1][1]==matrix[2][0]&&matrix[1][1]!=3){	cout<<"game over";
+        	break;}	
+    		
+    		
 	}
-	return 0;
+    return 0;
 }
